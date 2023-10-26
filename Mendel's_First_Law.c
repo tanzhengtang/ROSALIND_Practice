@@ -11,7 +11,7 @@
 #include<string.h>
 #include<math.h>
 
-float MFL(int, int, int);
+float MFL(float, float, float);
 
 int main(int argc, char const *argv[])
 {
@@ -22,7 +22,7 @@ int main(int argc, char const *argv[])
     return 0;
 }
 
-float MFL(int k, int m, int n){
+float MFL(float k, float m, float n){
     /*
         k is the homozygous dominant, m is the heterozygous,n is the homozygous recessive.  
     */
@@ -30,9 +30,15 @@ float MFL(int k, int m, int n){
         The point is knowing that if you select an individual from the population, the number of the population and the number of the special subpopulation which the individual belong to will reduce too.
     */
     /*
-    1. If AA in first order, then whatever second mate is, their child will have a dominant allele.  
+    Thought 1: 
+    1. If AA in first order, then whatever second mate is, their child will have a dominant allele. 
     2. If Aa in first order, plus every status' probability together.  
     3. If aa in first order, the solution as the status of Aa in first order.  
-    */  
-   return (float)k/(float)(k + m + n) + +((float)n/(float)(k + m + n)*(float));
+    Thought 2:    
+    */
+    float sm = k + m + n  
+    float kf = k/sm
+    float mf = (k * m) / (sm * (sm - 1)) + (m * (m - 1))/(2 * sm * (sm - 1)) + (m * n)/(4 * sm * (sm - 1))
+    float nf = (n * k) / (sm * (sm - 1)) + (n * m)/(4 * sm * (sm - 1))
+    return kf + mf + nf;
 }
