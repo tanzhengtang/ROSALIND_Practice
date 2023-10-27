@@ -33,7 +33,7 @@ double MFL(double k, double m, double n){
     */
     double sm = k + m + n;
     double kf = k/sm;
-    double mf = (k * m) / (sm * (sm - 1)) + (m * (m - 1))/(2 * sm * (sm - 1)) + (m * n)/(4 * sm * (sm - 1));
-    double nf = (n * k) / (sm * (sm - 1)) + (n * m)/(4 * sm * (sm - 1));
+    double mf = (k * m) / (sm * (sm - 1)) + (3 * m * (m - 1))/(4 * sm * (sm - 1)) + (m * n)/(2 * sm * (sm - 1));
+    double nf = (n * k) / (sm * (sm - 1)) + (n * m)/(2 * sm * (sm - 1));
     return kf + mf + nf;
 }
