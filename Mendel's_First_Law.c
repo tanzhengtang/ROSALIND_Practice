@@ -1,7 +1,4 @@
-#include<stdio.h>
-#include<string.h>
-#include<math.h>
-#include<stdlib.h>
+#include"Share.h"
 /*
     Description of problem: 
     Three positive integers k, m, and n, representing a population containing k+m+n organisms: k individuals are homozygous dominant for a factor, m are heterozygous, and n are homozygous recessive.  
